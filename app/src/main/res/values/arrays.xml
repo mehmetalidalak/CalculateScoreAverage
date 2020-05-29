@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="CreditSpinnerFields">
+        <item>1 Credit </item>
+        <item>2 Credit </item>
+        <item>3 Credit </item>
+        <item>4 Credit </item>
+        <item>5 Credit </item>
+        <item>6 Credit </item>
+        <item>7 Credit </item>
+        <item>8 Credit </item>
+        <item>9 Credit </item>
+        <item>10 Credit </item>
+    </string-array>
+
+    <string-array name="ScoreLetterSpinnerFields">
+        <item>AA </item>
+        <item>BA </item>
+        <item>BB </item>
+        <item>CB </item>
+        <item>CC </item>
+        <item>DC </item>
+        <item>DD </item>
+        <item>FF </item>
+    </string-array>
+
+</resources>
