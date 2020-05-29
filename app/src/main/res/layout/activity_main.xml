@@ -19,6 +19,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:hint="@string/enter_lesson_name"
+            android:textColor="@color/textPrimaryColor"
+            android:textColorHint="@color/hintTextColor"
             app:layout_constraintEnd_toStartOf="@+id/add_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -29,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:entries="@array/ScoreLetterSpinnerFields"
+            android:textColor="@color/textPrimaryColor"
             app:layout_constraintEnd_toStartOf="@+id/CreditSpinner"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:entries="@array/CreditSpinnerFields"
+            android:textColor="@color/textPrimaryColor"
             app:layout_constraintBottom_toBottomOf="@+id/ScoreLetterSpinner"
             app:layout_constraintEnd_toStartOf="@+id/add_button"
             app:layout_constraintHorizontal_bias="0.5"
@@ -53,6 +57,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
             android:text="@string/add"
+            android:textColor="@color/textPrimaryColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/CreditSpinner"
             app:layout_constraintTop_toTopOf="parent" />
@@ -63,6 +68,29 @@
         android:layout_height="2dp"
         android:layout_marginTop="5dp"
         android:background="@color/colorPrimaryDark" />
+
+    <ScrollView
+        android:id="@+id/lessons_ScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <LinearLayout
+            android:id="@+id/rootChildLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/calculate_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/calculate"
+        android:textColor="@color/textPrimaryColor">
+
+    </Button>
 
 
 </LinearLayout>
