@@ -25,4 +25,15 @@
         <item>FF </item>
     </string-array>
 
+
+    <string-array name="AutoCompleteLessons">
+        <item>Math</item>
+        <item>Physics</item>
+        <item>Biology</item>
+        <item>Chemistry</item>
+        <item>History</item>
+        <item>General Culture</item>
+        <item>Algorithm</item>
+    </string-array>
+
 </resources>
