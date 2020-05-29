@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_drawable_bg"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="10dp">
 
         <AutoCompleteTextView
             android:id="@+id/lessonName_edit_text"
@@ -18,20 +21,24 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:backgroundTint="@android:color/transparent"
             android:hint="@string/enter_lesson_name"
-            android:textColor="@color/textPrimaryColor"
-            android:textColorHint="@color/hintTextColor"
+            android:popupBackground="@color/colorAccentPopUp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/darker_gray"
             app:layout_constraintEnd_toStartOf="@+id/add_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
             android:id="@+id/ScoreLetterSpinner"
+            style="@android:style/Animation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:backgroundTint="@color/colorAccentPopUp"
             android:entries="@array/ScoreLetterSpinnerFields"
-            android:textColor="@color/textPrimaryColor"
+            android:popupBackground="@color/colorAccentPopUp"
             app:layout_constraintEnd_toStartOf="@+id/CreditSpinner"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,8 +49,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:backgroundTint="@color/colorAccentPopUp"
             android:entries="@array/CreditSpinnerFields"
-            android:textColor="@color/textPrimaryColor"
+            android:popupBackground="@color/colorAccentPopUp"
+            android:textColor="@android:color/white"
             app:layout_constraintBottom_toBottomOf="@+id/ScoreLetterSpinner"
             app:layout_constraintEnd_toStartOf="@+id/add_button"
             app:layout_constraintHorizontal_bias="0.5"
@@ -52,11 +61,11 @@
 
         <Button
             android:id="@+id/add_button"
-            android:layout_width="74dp"
-            android:layout_height="75dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="20dp"
-            android:text="@string/add"
+            android:background="@android:drawable/ic_input_add"
             android:textColor="@color/textPrimaryColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/CreditSpinner"
@@ -67,12 +76,12 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginTop="5dp"
-        android:background="@color/colorPrimaryDark" />
+        android:background="@color/colorAccentPopUp" />
 
     <ScrollView
         android:id="@+id/lessons_ScrollView"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="450dp">
 
         <LinearLayout
             android:id="@+id/rootChildLayout"
@@ -84,12 +93,16 @@
 
     <Button
         android:id="@+id/calculate_button"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/calculate"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_drawable"
         android:onClick="CalculateAverage"
-        android:textColor="@color/textPrimaryColor">
+        android:text="@string/calculate"
+        android:textColor="@android:color/black"
+        android:textSize="24sp">
 
     </Button>
 

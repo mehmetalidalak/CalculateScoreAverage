@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import com.shashank.sony.fancytoastlib.FancyToast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.new_lesson_layout.view.*
 
@@ -18,12 +19,11 @@ class MainActivity : AppCompatActivity() {
 
     var AUTO_COMPLETE_LESSONS =
         arrayListOf("Math", "Biology", "Physics", "Chemistry", "General Culture", "Algorithm")
-    var addedLessons = ArrayList<Lessons>()
+    var addedLessons = ArrayList<Lesson>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         canCalculate()
 
         val adapter = ArrayAdapter(
@@ -59,9 +59,21 @@ class MainActivity : AppCompatActivity() {
                     calculate_button.visibility = View.VISIBLE
                     resetInputArea()
                 } else
-                    Toast.makeText(this, ALREADY_EXIST_ERROR, Toast.LENGTH_SHORT).show()
+                    FancyToast.makeText(
+                        this,
+                        ALREADY_EXIST_ERROR,
+                        FancyToast.LENGTH_SHORT,
+                        FancyToast.CONFUSING,
+                        false
+                    ).show()
             } else
-                Toast.makeText(this, FIELD_EMPTY_ERROR, Toast.LENGTH_SHORT).show()
+                FancyToast.makeText(
+                    this,
+                    FIELD_EMPTY_ERROR,
+                    FancyToast.LENGTH_SHORT,
+                    FancyToast.WARNING,
+                    false
+                ).show()
         }
     }
 
@@ -107,10 +119,10 @@ class MainActivity : AppCompatActivity() {
 
     fun CalculateAverage(view: View) {
         var v: View?
-        var tempLesson: Lessons?
+        var tempLesson: Lesson?
         for (i in 0 until rootChildLayout.childCount) {
             v = rootChildLayout.getChildAt(i)
-            tempLesson = Lessons(
+            tempLesson = Lesson(
                 v.added_lessonName_edit_text.text.toString(),
                 (v.Added_CreditSpinner.selectedItemPosition + 1).toString(),
                 v.Added_ScoreLetterSpinner.selectedItem.toString()
@@ -124,11 +136,17 @@ class MainActivity : AppCompatActivity() {
             totalCredit += lesson.credit.toDouble()
         }
 
-        Toast.makeText(this, "Average ${totalScore / totalCredit}", Toast.LENGTH_SHORT).show()
+        FancyToast.makeText(
+            this,
+            "Average ${(totalScore / totalCredit).format(2)}",
+            FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false
+        ).show()
+
+        addedLessons.clear()
 
     }
 
-    fun getValueOfLetterScore(letterScore: String): Double {
+    private fun getValueOfLetterScore(letterScore: String): Double {
         var valueOfScore = -1.0
         valueOfScore = when (letterScore) {
             "AA" -> 4.0
@@ -143,4 +161,6 @@ class MainActivity : AppCompatActivity() {
         }
         return valueOfScore
     }
+
+    private fun Double.format(digits: Int) = "%.${digits}f".format(this)
 }
